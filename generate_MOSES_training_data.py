@@ -8,11 +8,11 @@ import os
 import pandas as pds
 # Params to experiment with
 # bin size
-quantiles = range(5,11)
+quantiles = [8]#range(5,11)
 # Window size
 K = [1]#range(5,11) # Window size between 5years and 10years
 smoothing_method = ['MA', 'MV', 'HE'] # Moving Average, Moving Variance and Hurst Exponent
-LOOK_AHEAD_YEARS = [1,2,3]
+LOOK_AHEAD_YEARS = [5]#,7,10]
 
 def feature_percentile(values, N):
     feature_percentile = []
@@ -23,6 +23,10 @@ def feature_percentile(values, N):
 
 # Test this there are missing values in the raw data.
 def binarize(value, percentile, N):
+    if len(percentile) != N - 1:
+        print("Error: There should be exactly N-1 list of percentiles for N bins. \
+               Length of percentiles provided is {} and Bin size is {}".format(len(percentile), N))
+        exit()
     bit_array =[0] * N
     for i in range(0, len(percentile)):
         if value <= percentile[i]:
@@ -34,9 +38,10 @@ def binarize(value, percentile, N):
         print('Error: there should be 1 in the bit array. value {}  percentile {} N{}'.format(value, percentile, N))
     return bit_array
 
-feature_names= ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC',
-                'Orbital', 'TropAerDir', 'StratAer', 'Temperature',
-                'Ocean']
+feature_names= ['WMGHG', 'Ozone', 'Land_Use', 'TropAerDir', 'TropAerInd', # Anthropogenic variables
+               'Solar', 'SnowAlb_BC', 'Orbital', 'StratAer',       # Natural variables
+               'Temperature', 'Ocean'] # Target variables
+
 data = 'data/natural_data.csv'
 dataFrame = pds.read_csv(data)
 
@@ -53,7 +58,7 @@ for K_exp in K:
             smoothing = smoothing_method[0]
             transformed_data= {}
 
-            for i in range(0, 8):
+            for i in range(0, len(feature_names)-2):
                 feature_rolling = dataFrame[feature_names[i]].rolling(K_exp)
                 smoothed_feature = None
                 if smoothing == 'MA':
@@ -96,12 +101,21 @@ for K_exp in K:
             # Convert target featuren in to UP(1) and DOWN(0) by sorting or diff or ratio method
             t_prev = None
             targets = []
+            TARGET_BIN_SIZE = 2
+            target_quantiles = feature_percentile(dataFrame['Temperature'], TARGET_BIN_SIZE)
+            '''
             for t in dataFrame['Temperature']:
                 if t_prev == None:
                     targets.append(pds.NaT)
                     t_prev = t
                     continue
                 if t - t_prev <= 0:
+                    targets.append(0)
+                else:
+                    targets.append(1)
+            '''
+            for t in dataFrame['Temperature']:
+                if t < target_quantiles[TARGET_BIN_SIZE - 1 - 1]:
                     targets.append(0)
                 else:
                     targets.append(1)
