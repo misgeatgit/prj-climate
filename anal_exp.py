@@ -76,17 +76,37 @@ def get_precision(predictedf,actualf):
 				true_positve += 1.0
 	rounded_prec = true_positve/positive			
 	return round(rounded_prec,4)
+def calc_performance(predicted, actual):
+    assert len(predicted) == len(actual)
+    print('Actual,Predicated values {}'.format(zip(predicted, actual)))
+    tp = tn = fp = fn = 0.0       #tp - true positive tn -true negative fp - false positive fn -false negative
+    for i in range(0, len(predicted)):
+        if predicted[i] == '1':
+            if actual[i] == '1':
+                tp += 1.0
+            else:
+                fp += 1.0
+        else:
+            if actual[i] == '0':
+                tn += 1.0
+            else:
+                fn += 1.0
+
+    return {'precision':tp/(tp + fp) if tp+fp > 0 else -1, 'recall':tp/(tp + fn) if tp + fn > 0 else -1, \
+            'accuracy':(tp + tn)/(tp + tn + fp + fn), \
+            'balanced_accuracy':(tp/(tp + fn) + tn/(tn + fp))/2 if tp+fp > 0 and tn+fp > 0 else -1}
+
 def save_result(data,resultf):
 	#print "RESULT FILE:%s"%resultf
 	header=["train_precision","train_recall","test_precision","test_recall"]
 	result_csv=[header,data]
 	resultf=open(resultf,"wb")
 	writer=csv.writer(resultf)
-	writer.writerows(result_csv)				
+	writer.writerows(result_csv)
 if __name__ == "__main__":
-	print "parsing...evaluatin...scoring"	
+	print "parsing...evaluatin...scoring"
 	usage = "usage: %prog [options]\n"
-	parser = argparse.ArgumentParser(usage)						
+	parser = argparse.ArgumentParser(usage)
 	parser.add_argument("-T", "--trainf",nargs=1,help = "moses training file")
 	parser.add_argument("-t", "--testf",nargs=1,help = "moses testing file")
 	parser.add_argument("-d", "--trtstdir",nargs=1,help = "moses training test and evaluation output file dir")
@@ -98,8 +118,8 @@ if __name__ == "__main__":
                 mtestfname = args.testf[0]
 		
                 trtstdir = os.path.abspath(args.trtstdir[0]) # a dir to store eval-table output
-		moses_resf = os.path.abspath(args.combof[0]) # 	
-		combofp_dir = os.path.split(moses_resf)[0]	   
+		moses_resf = os.path.abspath(args.combof[0]) #
+		combofp_dir = os.path.split(moses_resf)[0]
 		combof = os.path.join(combofp_dir,"%s.combo"%(mtrainfname))
 		parse_output(moses_resf,combof)
 		mtrain_evalf = os.path.join(trtstdir,mtrainfname+".eval")
@@ -107,16 +127,21 @@ if __name__ == "__main__":
 		#start
 		eval_output(os.path.join(trtstdir,mtrainfname),combof,mtrain_evalf)
 		eval_output(os.path.join(trtstdir,mtestfname),combof,mtest_evalf)
-		mtrain_prec = get_precision(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
-		mtrain_rec = get_recall(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
-		mtest_prec = get_precision(mtest_evalf,os.path.join(trtstdir,mtestfname))
-		mtest_rec = get_recall(mtest_evalf,os.path.join(trtstdir,mtestfname))
+                #mtrain_prec = get_precision(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
+		#mtrain_rec = get_recall(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
+		#mtest_prec = get_precision(mtest_evalf,os.path.join(trtstdir,mtestfname))
+		#mtest_rec = get_recall(mtest_evalf,os.path.join(trtstdir,mtestfname))
+
+                ptr = calc_performance(values_of_col(mtrain_evalf, OUT), values_of_col(os.path.join(trtstdir,mtrainfname), OUT))
+                ptst = calc_performance(values_of_col(mtest_evalf, OUT), values_of_col(os.path.join(trtstdir,mtestfname), OUT))
+
                 #result_file = os.path.join(os.path.split(trtstdir)[0],"results.csv")
                 result_file = trtstdir+"/results.csv"
                 print('Saved result to {}'.format(result_file))
-		save_result([mtrain_prec,mtrain_rec,mtest_prec,mtest_rec],result_file)	   	
+		save_result([ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
+                        ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy']],result_file)
                 # Append result of this experiment to results.csv
-                os.popen('rm resluts/* -rf')
+                os.popen('rm resluts/*.csv -rf')
                 all_results = 'results/look_ahead{}_results.csv'
                 f = open(combof,'r')
 	        combo = f.readline()
@@ -129,7 +154,8 @@ if __name__ == "__main__":
                 bins = int(bins_la[0])
                 la = int(bins_la[1])
                 with open(all_results.format(la), 'a+') as f:
-                    line = '{},{},{},{},{},{}'.format(bins,mtrain_prec,mtrain_rec,mtest_prec,mtest_rec,combo)
+                    line = '{},{},{},{},{},{},{},{},{},{}'.format(bins, ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
+                            ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy'],combo)
                     f.write(line)
 	else:
-		parser.print_help()   
+		parser.print_help()
