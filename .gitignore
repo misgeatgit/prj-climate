@@ -2,3 +2,5 @@
 results/*.csv
 exp/*
 !exp/.gitkeep
+data/ffx/*.pyc
+data/ffx/*.swp
