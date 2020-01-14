@@ -1,0 +1,53 @@
+Predicting 0 years ahead:
+/usr/local/lib/python2.7/dist-packages/sklearn/linear_model/coordinate_descent.py:492: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+ *-0.0949
+ *-0.0443 / (1.0 - 514*Orbital)
+ *-0.0433 / (1.0 - 264*Orbital - 261*Orbital)
+ *-0.240 - 84.6*Land_Use * Orbital + 5.89*Land_Use^2 + 3.28*log10(WMGHG) * abs(TropAerDir) + 0.258*Solar
+ *-0.241 - 73.7*Land_Use * Orbital + 6.01*Land_Use^2 + 3.31*log10(WMGHG) * abs(TropAerDir) + 0.262*Solar + 0.109*Solar^2
+ *-0.801 - 4.02*abs(TropAerDir) + 0.538*WMGHG - 0.452*TropAerDir + 0.256*abs(Solar) - 0.215*log10(SnowAlb_BC) + 0.0321*StratAer
+ *-0.225 - 199*Land_Use * Orbital + 7.31*log10(WMGHG) * abs(TropAerDir) + 6.24*Land_Use^2 - 1.73*abs(TropAerDir) + 1.67*Solar^2 + 0.126*Solar + 0.0228*StratAer
+ *-0.240 - 168*Land_Use * Orbital + 18.9*Orbital + 7.82*log10(WMGHG) * abs(TropAerDir) + 6.23*Land_Use^2 - 1.95*abs(TropAerDir) + 1.84*Solar^2 + 0.108*Solar + 0.0247*StratAer
+Predicting 1 years ahead:
+ *-0.0947
+ *-0.0451 / (1.0 - 510*Orbital)
+ *-0.0436 / (1.0 - 264*Orbital - 261*Orbital)
+ *-0.227 + 6.39*Land_Use^2 - 3.92*Land_Use * Orbital + 3.69*log10(WMGHG) * abs(TropAerDir) + 0.426*Solar + 0.0157*StratAer
+ *-0.219 - 44.2*Land_Use * Orbital + 6.44*Land_Use^2 + 5.16*log10(WMGHG) * abs(TropAerDir) - 0.604*abs(TropAerDir) + 0.393*Solar + 0.0234*StratAer
+ *-0.216 - 89.4*Land_Use * Orbital + 6.34*Land_Use^2 + 6.05*log10(WMGHG) * abs(TropAerDir) - 0.993*abs(TropAerDir) + 0.359*Solar + 0.265*Solar^2 + 0.0278*StratAer
+ *-0.233 + 7.68*log10(WMGHG) * abs(TropAerDir) + 5.50*Land_Use^2 - 1.58*abs(TropAerDir) + 0.313*Solar + 0.296*abs(Land_Use) - 0.201*Land_Use + 0.0859*abs(Solar) + 0.0333*StratAer
+ *-0.111 - 121*max(0,0.00158-Orbital) - 5.80*max(0,TropAerDir-0.0143) + 5.39*max(0,Land_Use+0.0881) + 1.87*max(0,-0.170-Land_Use) + 1.65*max(0,Ozone-0.295) + 1.05*max(0,Land_Use+0.0678) + 0.909*max(0,SnowAlb_BC-0.0469) - 0.446*max(0,0.900-WMGHG) + 0.356*abs(Solar) + 0.0943*max(0,WMGHG-1.75) + 0.0886*max(0,Solar-0.0807) + 0.0571*max(0,StratAer+1.88) + 0.00978*max(0,StratAer+0.897)
+Predicting 2 years ahead:
+ *-0.0947
+ *-0.123 + 0.0338*WMGHG
+ *(-0.0574 - 0.0943*Land_Use) / (1.0 - 519*Orbital)
+ *-0.319 + 0.576*log10(Orbital) * abs(TropAerDir) + 0.538*Solar + 0.323*WMGHG
+ *-0.320 - 4.08*TropAerDir * abs(TropAerDir) + 0.884*log10(Orbital) * abs(TropAerDir) + 0.487*Solar + 0.349*WMGHG + 0.00327*StratAer
+ *-0.319 - 5.43*TropAerDir * abs(TropAerDir) + 0.966*log10(Orbital) * abs(TropAerDir) + 0.473*Solar + 0.354*WMGHG + 0.00426*StratAer - 0.000976*abs(StratAer)
+ *-0.323 - 5.62*TropAerDir * abs(TropAerDir) + 0.982*log10(Orbital) * abs(TropAerDir) + 0.470*Solar + 0.356*WMGHG - 0.00353*abs(StratAer) + 0.00224*StratAer - 0.00178*log10(SnowAlb_BC)
+ *-0.334 - 5.45*TropAerDir * abs(TropAerDir) + 0.988*log10(Orbital) * abs(TropAerDir) + 0.467*Solar + 0.361*WMGHG - 0.00656*log10(SnowAlb_BC) - 0.00516*abs(StratAer) + 0.00257*abs(Solar) + 0.000981*StratAer
+Predicting 3 years ahead:
+ *-0.0905
+ *-0.0448 / (1.0 - 515*Orbital)
+ *-0.363 - 0.844*Land_Use + 0.204*WMGHG
+ *-0.371 - 0.781*Land_Use + 0.228*WMGHG + 0.0155*StratAer
+ *-0.370 - 0.711*Land_Use + 0.241*WMGHG + 0.0429*Solar + 0.0232*StratAer
+ *-0.0725 - 1.73*max(0,TropAerDir-0.0173) - 0.988*max(0,-0.0108-Solar) + 0.962*max(0,-0.436-TropAerInd) + 0.668*max(0,-0.0873-Land_Use) - 0.557*max(0,TropAerDir+0.00272) - 0.281*max(0,0.803-WMGHG) - 0.235*max(0,Solar-0.0465) - 0.136*max(0,-0.0394-Solar) + 0.0881*max(0,WMGHG-0.557)
+ *-0.0686 - 1.66*max(0,TropAerDir-0.0173) + 0.990*max(0,-0.436-TropAerInd) - 0.989*max(0,-0.0108-Solar) - 0.653*max(0,TropAerDir+0.00272) + 0.650*max(0,-0.0873-Land_Use) - 0.287*max(0,0.803-WMGHG) - 0.267*max(0,Solar-0.0465) - 0.149*max(0,-0.0394-Solar) + 0.0855*max(0,WMGHG-0.557) + 0.0120*max(0,Ozone-0.260)
+ *-0.0397 - 2.07*max(0,TropAerDir-0.0173) + 1.71*max(0,TropAerInd+0.0727) + 1.11*max(0,-0.436-TropAerInd) - 0.752*abs(Solar) - 0.487*max(0,0.803-WMGHG) + 0.343*max(0,-0.0873-Land_Use) - 0.326*max(0,-0.0108-Solar) - 0.200*max(0,-0.0394-Solar) + 0.121*max(0,WMGHG-0.557) - 0.0200*abs(StratAer) + 0.0162*max(0,StratAer+0.405)
+ *-0.0599 - 2.17*max(0,TropAerDir-0.0173) + 1.56*max(0,TropAerInd+0.0727) + 1.56*max(0,SnowAlb_BC-0.0463) + 1.26*max(0,-0.436-TropAerInd) - 0.931*max(0,-0.0108-Solar) - 0.864*max(0,Solar-0.0465) - 0.475*max(0,0.803-WMGHG) + 0.436*max(0,-0.0873-Land_Use) - 0.419*max(0,-0.0394-Solar) + 0.0938*max(0,WMGHG-0.557) + 0.0321*max(0,StratAer+0.405) - 0.0254*max(0,-1.39-StratAer)
+Predicting 4 years ahead:
+ *-0.0865
+ *-0.0443 / (1.0 - 518*Orbital)
+ *-0.404 - 0.908*Land_Use + 0.268*WMGHG
+ *-0.395 - 4.21*abs(TropAerDir) * TropAerDir - 0.589*abs(TropAerDir) + 0.535*log10(WMGHG) - 0.175*log10(SnowAlb_BC) + 0.165*WMGHG
+ *-0.410 - 5.73*abs(TropAerDir) * TropAerDir - 0.652*abs(TropAerDir) + 0.598*log10(WMGHG) - 0.203*log10(SnowAlb_BC) + 0.141*WMGHG - 9.54e-5*StratAer^2
+ *0.0823 + 826*max(0,0.00115-Orbital) + 4.52*max(0,-0.0542-TropAerDir) - 3.62*max(0,TropAerDir-0.0190) - 0.832*max(0,0.726-WMGHG) + 0.105*max(0,Solar-0.0179) - 0.0614*max(0,StratAer+0.897) - 0.0240*max(0,-0.897-StratAer) - 0.0191*max(0,1.59-WMGHG)
+Predicting 5 years ahead:
+ *-0.0743
+ *-0.0403 / (1.0 - 518*Orbital)
+ *-0.343 + 0.338*WMGHG - 0.249*Land_Use
+ *0.0586 + 15.9*log10(WMGHG) * SnowAlb_BC - 0.541*abs(Solar) + 0.303*abs(TropAerDir) + 0.248*log10(WMGHG) - 0.0395*log10(Orbital) * log10(WMGHG) + 0.00602*log10(Ozone) + 0.00101*StratAer^2
+ *0.0631 + 23.6*log10(WMGHG) * SnowAlb_BC - 5.33*Land_Use * TropAerDir + 0.577*abs(TropAerDir) - 0.538*abs(Solar) + 0.221*log10(WMGHG) - 0.0278*log10(Orbital) * log10(WMGHG) + 0.0118*log10(Ozone) + 0.00222*StratAer^2
+ *0.0765 + 26.3*log10(WMGHG) * SnowAlb_BC - 8.20*Land_Use * TropAerDir - 4.40*abs(TropAerDir) * Land_Use - 0.526*abs(Solar) + 0.436*log10(WMGHG) * TropAerDir + 0.189*log10(WMGHG) + 0.171*abs(TropAerDir) + 0.0307*log10(Ozone) - 0.0173*log10(Orbital) * log10(WMGHG) + 0.00276*StratAer^2
