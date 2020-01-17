@@ -12,7 +12,7 @@ quantiles = [8]#range(5,11)
 # Window size
 K = [1]#range(5,11) # Window size between 5years and 10years
 smoothing_method = ['MA', 'MV', 'HE'] # Moving Average, Moving Variance and Hurst Exponent
-LOOK_AHEAD_YEARS = [5]#,7,10]
+LOOK_AHEAD_YEARS = [0,1,2,3,4,5,6,7,8,9,10]
 
 def feature_percentile(values, N):
     feature_percentile = []
@@ -119,7 +119,13 @@ for K_exp in K:
                     targets.append(0)
                 else:
                     targets.append(1)
-
+            '''
+            for t in dataFrame['Temperature']:
+                if t <= 0:
+                    targets.append(0)
+                else:
+                    targets.append(1)
+             '''
             # Predict $LOOK_AHEAD_YEAR ahead
             look_ahead = []
             for i in range(0, len(targets) - LOOK_AHEAD_YEAR):
