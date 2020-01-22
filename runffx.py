@@ -17,16 +17,18 @@ def plot_prediction_vs_actual(yhat, y, file_name, title=''):
         fig.savefig(file_name, dpi=fig.dpi)
         plt.close()
 
-test_X = pds.read_csv('natural_data_ffx_test_X.csv').values
-test_Y = pds.read_csv('natural_data_ffx_test_Y.csv').values
-train_X = pds.read_csv('natural_data_ffx_train_X.csv').values
-train_Y = pds.read_csv('natural_data_ffx_train_Y.csv').values
+ffx_dir = 'data/ffx'
+test_X = pds.read_csv('{}/natural_data_ffx_test_X.csv'.format(ffx_dir)).values
+test_Y = pds.read_csv('{}/natural_data_ffx_test_Y.csv'.format(ffx_dir)).values
+train_X = pds.read_csv('{}/natural_data_ffx_train_X.csv'.format(ffx_dir)).values
+train_Y = pds.read_csv('{}/natural_data_ffx_train_Y.csv'.format(ffx_dir)).values
 
 predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
               'TropAerDir','TropAerInd','StratAer']
 
 # Predict K years ahead
-Ks = [10]
+#Ks = [0,1,2,3,4,5,6,7,8,10,9]
+Ks = [15,16,17,18,19,20]
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
     test_X = test_X[:len(test_X) - K]
