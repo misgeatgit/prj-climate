@@ -47,38 +47,9 @@ def values_of_col(csvf,col_name,sepchar=' '):
 			col_values.append(row[col_name_index])
 	del col_values[0] # remove the column name		
 	return col_values						
-def get_recall(predictedf,actualf):
-	"""recall for fixed train test"""
-	actual_values = values_of_col(actualf,OUT)
-	predicted_values = values_of_col(predictedf,OUT)
-	true_positve=0.0
-	trues=0.0
-	assert len(actual_values) == len(predicted_values)
-	for i in range(0,len(actual_values)):
-		if actual_values[i] == '1':
-			trues += 1.0
-			if predicted_values[i] == '1':
-				true_positve += 1.0
-	#print "TRUES=%s TRUE_POSITIVE=%s"%(str(trues),str(true_positve))
-	rounded_recall = true_positve/trues
-	return round(rounded_recall,4)	
-def get_precision(predictedf,actualf):
-	"""precision for fixed train test"""
-	actual_values = values_of_col(actualf,OUT)
-	predicted_values = values_of_col(predictedf,OUT)
-	true_positve = 0.0
-	positive = 0.0
-	assert len(actual_values) == len(predicted_values)
-	for i in range(0,len(actual_values)):
-		if predicted_values[i] == '1':
-			positive += 1.0
-			if actual_values[i] == '1':
-				true_positve += 1.0
-	rounded_prec = true_positve/positive			
-	return round(rounded_prec,4)
 def calc_performance(predicted, actual):
     assert len(predicted) == len(actual)
-    print('Actual,Predicated values {}'.format(zip(predicted, actual)))
+    #print('Actual,Predicated values {}'.format(zip(predicted, actual)))
     tp = tn = fp = fn = 0.0       #tp - true positive tn -true negative fp - false positive fn -false negative
     for i in range(0, len(predicted)):
         if predicted[i] == '1':
@@ -127,10 +98,6 @@ if __name__ == "__main__":
 		#start
 		eval_output(os.path.join(trtstdir,mtrainfname),combof,mtrain_evalf)
 		eval_output(os.path.join(trtstdir,mtestfname),combof,mtest_evalf)
-                #mtrain_prec = get_precision(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
-		#mtrain_rec = get_recall(mtrain_evalf,os.path.join(trtstdir,mtrainfname))
-		#mtest_prec = get_precision(mtest_evalf,os.path.join(trtstdir,mtestfname))
-		#mtest_rec = get_recall(mtest_evalf,os.path.join(trtstdir,mtestfname))
 
                 ptr = calc_performance(values_of_col(mtrain_evalf, OUT), values_of_col(os.path.join(trtstdir,mtrainfname), OUT))
                 ptst = calc_performance(values_of_col(mtest_evalf, OUT), values_of_col(os.path.join(trtstdir,mtestfname), OUT))
@@ -142,20 +109,26 @@ if __name__ == "__main__":
                         ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy']],result_file)
                 # Append result of this experiment to results.csv
                 os.popen('rm resluts/*.csv -rf')
-                all_results = 'results/look_ahead{}_results.csv'
                 f = open(combof,'r')
 	        combo = f.readline()
 	        f.close()
                 exp = os.path.split(trtstdir)
-                exp = exp[len(exp)-1]
+                #exp = exp[len(exp)-1]
                 print("Experiment dir {}".format(exp))
                 #'exp_b*la*'
-                bins_la = exp[5:].split('la')
-                bins = int(bins_la[0])
+                pdir = os.path.split(exp[0])[1]
+                bins_la = pdir.split('la')
                 la = int(bins_la[1])
-                with open(all_results.format(la), 'a+') as f:
+                bins = int(bins_la[0][5:])
+                suffix = pdir+'_'+exp[1]
+                exp_result_dir='results/LA{}'.format(la)
+                if not os.path.isdir(exp_result_dir):
+                    os.mkdir(exp_result_dir)
+                result_f = '{}/{}_results.csv'.format(exp_result_dir, suffix)
+                with open(result_f, 'a+') as f:
                     line = '{},{},{},{},{},{},{},{},{},{}'.format(bins, ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
                             ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy'],combo)
                     f.write(line)
+                print('Result saved to {}'.format(result_f))
 	else:
 		parser.print_help()

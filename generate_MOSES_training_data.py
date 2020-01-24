@@ -18,7 +18,7 @@ def feature_percentile(values, N):
     feature_percentile = []
     for i in range(1, N):
         feature_percentile.append(values.quantile(float(i)/N))
-    
+
     return feature_percentile
 
 # Test this there are missing values in the raw data.
@@ -74,7 +74,7 @@ for K_exp in K:
                 transformed_data[feature_names[i]] = smoothed_feature
                 #WMGHG_MV = WMGHG_rolling.var()
 
-            # Build a dataFrame             
+            # Build a dataFrame
             transformed_df = pds.DataFrame(transformed_data) 
             transformed_df = transformed_df.dropna()
 
@@ -88,7 +88,7 @@ for K_exp in K:
                 #print('Feature_name: {}'.format(feature_name))
                 values = transformed_df[feature_name]
                 percentile = feature_percentile(values, Q_exp)
-                for value in values:                
+                for value in values:
                     bits = binarize(value, percentile, Q_exp)
                     #print("Binarize({}) = {}".format(value, bits))
                     for i in range(0, len(bits)):
@@ -98,65 +98,40 @@ for K_exp in K:
                         else:
                             binarized_data[key] = [bits[i]]
 
-            # Convert target featuren in to UP(1) and DOWN(0) by sorting or diff or ratio method
-            t_prev = None
-            targets = []
-            TARGET_BIN_SIZE = 2
-            target_quantiles = feature_percentile(dataFrame['Temperature'], TARGET_BIN_SIZE)
-            '''
-            for t in dataFrame['Temperature']:
-                if t_prev == None:
-                    targets.append(pds.NaT)
-                    t_prev = t
-                    continue
-                if t - t_prev <= 0:
-                    targets.append(0)
-                else:
-                    targets.append(1)
-            '''
-            for t in dataFrame['Temperature']:
-                if t < target_quantiles[TARGET_BIN_SIZE - 1 - 1]:
-                    targets.append(0)
-                else:
-                    targets.append(1)
-            '''
-            for t in dataFrame['Temperature']:
-                if t <= 0:
-                    targets.append(0)
-                else:
-                    targets.append(1)
-             '''
-            # Predict $LOOK_AHEAD_YEAR ahead
-            look_ahead = []
-            for i in range(0, len(targets) - LOOK_AHEAD_YEAR):
-                look_ahead.append(targets[i + LOOK_AHEAD_YEAR])
-
-            target_df = pds.DataFrame({'Temperature':look_ahead})
-            features_df = pds.DataFrame(binarized_data)
-            # Resize
-            features_df.drop(features_df.tail(LOOK_AHEAD_YEAR).index,inplace=True)
-            # Append target
-            features_df['Temperature'] = look_ahead
-
-            #for feature_name in features_df:
-            #    print(feature_name)
-
-            # Dump dataFrame to CSV file
             exp_dir = 'exp/exp_b{}la{}'.format(Q_exp, LOOK_AHEAD_YEAR)
             os.mkdir(exp_dir)
-            PATH = '{}/natural_data_MOSES_Bins{}_LookAhead{}.csv'.format(exp_dir, Q_exp, LOOK_AHEAD_YEAR)
-            features_df.to_csv(PATH, sep=' ', index=False)
 
-            #4. Set a fitness function to MOSES according to the description in the paper
-            # [TODO How do you do this?]
+            # Convert target featuren in to UP(1) and DOWN(0)
+            # by using quantiles as border values.
+            targets = []
+            TARGET_CATEGORIES = 10
+            target_quantiles = feature_percentile(dataFrame['Temperature'], TARGET_CATEGORIES)
+            for tq in target_quantiles:
+                target_vec = []
+                for t in dataFrame['Temperature']:
+                    if t < tq:
+                        target_vec.append(0)
+                    else:
+                        target_vec.append(1)
+                targets.append(target_vec)
 
-            #5. Run MOSES with different K and N percentiles and a particular sliding 
-            # window technique from step 2
+            # Predict $LOOK_AHEAD_YEAR ahead
+            quartile = 1
+            for target_vec in targets:
+                look_ahead = []
+                for i in range(0, len(target_vec) - LOOK_AHEAD_YEAR):
+                    look_ahead.append(target_vec[i + LOOK_AHEAD_YEAR])
 
+                target_df = pds.DataFrame({'Temperature':look_ahead})
+                features_df = pds.DataFrame(binarized_data)
+                # Resize
+                features_df.drop(features_df.tail(LOOK_AHEAD_YEAR).index,inplace=True)
+                # Append target
+                features_df['Temperature'] = look_ahead
 
-
-# In[ ]:
-
-
-
-
+                # Dump dataFrame to CSV file
+                target_exp_dir = '{}/{}Quartile'.format(exp_dir, quartile)
+                os.mkdir(target_exp_dir)
+                PATH = '{}/natural_data_MOSES_Bins{}_LookAhead{}_{}Quartile.csv'.format(target_exp_dir, Q_exp, LOOK_AHEAD_YEAR, quartile)
+                quartile += 1
+                features_df.to_csv(PATH, sep=' ', index=False)
