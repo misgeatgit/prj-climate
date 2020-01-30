@@ -104,7 +104,6 @@ if __name__ == "__main__":
 
                 #result_file = os.path.join(os.path.split(trtstdir)[0],"results.csv")
                 result_file = trtstdir+"/results.csv"
-                print('Saved result to {}'.format(result_file))
 		save_result([ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
                         ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy']],result_file)
                 # Append result of this experiment to results.csv
@@ -114,7 +113,7 @@ if __name__ == "__main__":
 	        f.close()
                 exp = os.path.split(trtstdir)
                 #exp = exp[len(exp)-1]
-                print("Experiment dir {}".format(exp))
+                #print("Experiment dir {}".format(exp))
                 #'exp_b*la*'
                 pdir = os.path.split(exp[0])[1]
                 bins_la = pdir.split('la')
