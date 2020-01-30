@@ -130,8 +130,9 @@ for K_exp in K:
                 features_df['Temperature'] = look_ahead
 
                 # Dump dataFrame to CSV file
-                target_exp_dir = '{}/{}Quartile'.format(exp_dir, quartile)
+                target_exp_dir = '{}/Top{}VsOthers'.format(exp_dir, 100-quartile*10)
                 os.mkdir(target_exp_dir)
-                PATH = '{}/natural_data_MOSES_Bins{}_LookAhead{}_{}Quartile.csv'.format(target_exp_dir, Q_exp, LOOK_AHEAD_YEAR, quartile)
+                PATH = '{}/natural_data_MOSES_Bins{}_LookAhead{}_Top{}VsOthers.csv'.format(target_exp_dir, Q_exp, LOOK_AHEAD_YEAR, 100-quartile*10)
                 quartile += 1
                 features_df.to_csv(PATH, sep=' ', index=False)
+                print("Binarized data saved to {}".format(PATH))
