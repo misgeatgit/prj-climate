@@ -23,7 +23,6 @@ temperature.sort()
 Lbound = temperature[0]
 Ubound = temperature[len(temperature)-1]
 bins = [Lbound] + target_quantiles + [Ubound]
-bins.reverse() # Since the predictors are also in reverse order i.e Top10VsOthers...Top90VsOthers instead of the other way round
 print('Bins {}'.format(bins))
 
 # read the combined predictor file
@@ -32,28 +31,34 @@ df = pds.read_csv(combined_predictors_f, sep=' ')
 predicted_temp_values = []
 for index, row in df.iterrows():
     prediction = row.values.tolist() #Top10VsOthers, Top20VsOthers....Top90VsOthers
-    prediction_cnt = {}
+    prediction.reverse()# Since the predictors are also in reverse order i.e Top10VsOthers...Top90VsOthers instead of the other way round
+    print('Predictions {}'.format(prediction))
+    votes = {}  #(index, count) dictionary
     for i in range(len(prediction)):
-        cnt = 0
-        for j in range(i+1, len(prediction)):
-            if prediction[j] == 1:
-                cnt += 1
-        prediction_cnt[i] = cnt
-        # TODO make sure count is correct
-    prediction_cnt = sorted(prediction_cnt.items(), key=operator.itemgetter(1), reverse=True)
-    #print(prediction_cnt)
+        if  i == 0:
+            votes[i] = prediction[i] * 2 if prediction[i] == 1 else 1# multiplying by 2 account for the zeros bin
+        elif i > 0:
+            votes[i] = votes[i-1] + prediction[i]
+        elif i == len(prediction) - 1:
+            votes[i] = votes[i-1] + prediction[i] # taking into account the last bin
+
+    votes = sorted(votes.items(), key=operator.itemgetter(1), reverse=True)
+    print('Votes {}'.format(votes))
     bin_indexes_to_vote = []
-    for i in range(len(prediction_cnt)):
+    for i in range(len(votes)):
         if i == 0:
-            bin_indexes_to_vote.append(prediction_cnt[i][0])
-        elif prediction_cnt[i-1][1] == prediction_cnt[i][1]:
-            bin_indexes_to_vote.append(prediction_cnt[i][0])
+            bin_indexes_to_vote.append(votes[i][0])
+        elif votes[i-1][1] == votes[i][1]:
+            bin_indexes_to_vote.append(votes[i][0])
         else:
             break
     values_to_average = [] # If the ensembles doesn't agree, there might be multiple predictions
     for bin_index in bin_indexes_to_vote:
         # average of local Upper and Lower bound
-        values_to_average.append((bins[bin_index] + bins[bin_index + 1])/2.0)
+        if bin_index == 0:
+            values_to_average.append((bins[bin_index] + bins[bin_index + 1])/2.0)
+        else:
+            values_to_average.append((bins[bin_index + 1] + bins[bin_index + 2])/2.0)
 
     # Average the predictions to a single value
     final_average = sum(values_to_average)/len(values_to_average)
