@@ -29,6 +29,7 @@ print('Bins {}'.format(bins))
 combined_predictors_f = sys.argv[1]
 df = pds.read_csv(combined_predictors_f, sep=' ')
 predicted_temp_values = []
+bins_voted = [] #list of lists
 for index, row in df.iterrows():
     prediction = row.values.tolist() #Top10VsOthers, Top20VsOthers....Top90VsOthers
     prediction.reverse()# Since the predictors are also in reverse order i.e Top10VsOthers...Top90VsOthers instead of the other way round
@@ -62,10 +63,12 @@ for index, row in df.iterrows():
 
     # Average the predictions to a single value
     final_average = sum(values_to_average)/len(values_to_average)
+    bins_voted.append(bin_indexes_to_vote)
     predicted_temp_values.append(round(final_average,2))
 
 print('TempPredicted {}'.format(predicted_temp_values))
 # Rewrite File with the new value
+df['BinsVoted'] = bins_voted
 df['PredictedTemperature'] = predicted_temp_values
 # Extract lookahead years information
 print('Raw Temperature data {} size={}'.format(temperature, len(temperature)))
