@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.642857142857,0.94,0.0,0.0,and(or($Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin0 $Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin0 !$Solar_bin6 $StratAer_bin3) or($Solar_bin1 !$StratAer_bin0) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin1 $Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin1 !$Solar_bin6 $StratAer_bin3) or($Solar_bin1 !$StratAer_bin0) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or(!$Land_Use_bin2 $Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or(!$Land_Use_bin2 !$Solar_bin6 $StratAer_bin3) or($Solar_bin1 !$StratAer_bin0) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin3 $Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin3 !$Solar_bin6 $StratAer_bin3) or($Solar_bin1 !$StratAer_bin0) $WMGHG_bin5) 
+8,0.642857142857,0.94,0.0,0.0,and(or($Land_Use_bin4 $Solar_bin1 !$StratAer_bin0) or(!$Solar_bin6 $StratAer_bin3) $WMGHG_bin5) 

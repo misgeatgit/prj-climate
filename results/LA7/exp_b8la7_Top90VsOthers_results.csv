@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,1.0,0.94,1.0,1.0,or($StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin0 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin1 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin2 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin3 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin4 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin5 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or(!$Land_Use_bin6 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Land_Use_bin7 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 
+8,1.0,0.94,1.0,1.0,or($Orbital_bin0 $StratAer_bin2 $StratAer_bin4 !$TropAerInd_bin6) 

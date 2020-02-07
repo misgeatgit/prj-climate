@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3)) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 $Ozone_bin3 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3)) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 $TropAerDir_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3)) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Land_Use_bin0) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Land_Use_bin2) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Land_Use_bin3) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Land_Use_bin4) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Orbital_bin0) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Orbital_bin3) 
+8,0.989010989011,0.942857142857,1.0,1.0,or(and(or(!$Land_Use_bin6 !$TropAerDir_bin7) or($Ozone_bin3 $StratAer_bin1 !$TropAerDir_bin6) !$StratAer_bin0) and(!$Ozone_bin1 !$StratAer_bin3) $Orbital_bin5) 

@@ -1,0 +1,10 @@
+10,0.466666666667,0.919191919192,0.25,0.25,or(and($SnowAlb_BC_bin6 $StratAer_bin4) $SnowAlb_BC_bin7) 
+10,0.4,0.909090909091,0.25,0.25,$Land_Use_bin2 
+10,0.4,0.909090909091,0.25,0.25,$Orbital_bin7 
+10,0.4,0.909090909091,0.25,0.25,$Ozone_bin7 
+10,0.4,0.909090909091,0.25,0.25,$SnowAlb_BC_bin7 
+10,0.4,0.909090909091,0.25,0.25,$TropAerDir_bin2 
+10,0.4,0.909090909091,0.25,0.25,$TropAerInd_bin2 
+10,0.4,0.909090909091,0.25,0.25,$WMGHG_bin7 
+10,0.466666666667,0.919191919192,0.25,0.25,or(and(!$Land_Use_bin0 $SnowAlb_BC_bin6 $StratAer_bin4) $SnowAlb_BC_bin7) 
+10,0.466666666667,0.919191919192,0.25,0.25,or(and(!$Land_Use_bin1 $SnowAlb_BC_bin6 $StratAer_bin4) $SnowAlb_BC_bin7) 

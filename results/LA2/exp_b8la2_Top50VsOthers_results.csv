@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin0 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin1 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin2 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or(!$Land_Use_bin3 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin4 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin5 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin6 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Land_Use_bin7 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 
+8,0.953488372093,0.951923076923,0.461538461538,0.461538461538,or(and(or($Orbital_bin2 $Solar_bin5 $StratAer_bin6) $WMGHG_bin4) and($SnowAlb_BC_bin3 $TropAerDir_bin5) $Solar_bin6 $Solar_bin7 $WMGHG_bin5) 

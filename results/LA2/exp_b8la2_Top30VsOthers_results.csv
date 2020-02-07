@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.769230769231,0.971153846154,0.423076923077,0.423076923077,or(and(or(and($SnowAlb_BC_bin3 $StratAer_bin4) $Solar_bin1) or(and(!$TropAerDir_bin6 $TropAerInd_bin4) $Ozone_bin5)) $TropAerDir_bin1) 
+8,0.769230769231,0.961538461538,0.423076923077,0.423076923077,or(and(or(and(!$TropAerDir_bin6 $TropAerInd_bin4) $Ozone_bin5) or($Solar_bin1 $StratAer_bin3)) $TropAerDir_bin1) 
+8,0.769230769231,0.961538461538,0.423076923077,0.423076923077,or(and(or(and(!$TropAerDir_bin6 $TropAerInd_bin4) $Ozone_bin5) or($Solar_bin1 $StratAer_bin4)) $TropAerDir_bin1) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,and(or(and(or($Ozone_bin5 $TropAerInd_bin4) $Solar_bin1) $TropAerDir_bin1) !$TropAerDir_bin6) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,or(and(or(and(!$TropAerDir_bin6 $TropAerInd_bin4) $Ozone_bin5) $Solar_bin1) $TropAerDir_bin1) 
+8,0.461538461538,0.932692307692,0.423076923077,0.423076923077,or(and($Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,and(or(and(or($Ozone_bin5 $TropAerInd_bin4) $Solar_bin1) $TropAerDir_bin1) !$Ozone_bin4 !$TropAerDir_bin6) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,and(or(and(or($Ozone_bin5 $TropAerInd_bin4) $Solar_bin1) $TropAerDir_bin1) !$Ozone_bin7 !$TropAerDir_bin6) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,and(or(and(or($Ozone_bin5 $TropAerInd_bin4) $Solar_bin1) $TropAerDir_bin1) !$SnowAlb_BC_bin7 !$TropAerDir_bin6) 
+8,0.538461538462,0.942307692308,0.423076923077,0.423076923077,and(or(and(or($Ozone_bin5 $TropAerInd_bin4) $Solar_bin1) $TropAerDir_bin1) !$StratAer_bin5 !$TropAerDir_bin6) 

@@ -2,13 +2,11 @@
 # coding: utf-8
 
 # In[64]:
-
-
 import os
 import pandas as pds
 # Params to experiment with
 # bin size
-quantiles = [8]#range(5,11)
+quantiles = [5]#range(8,15)
 # Window size
 K = [1]#range(5,11) # Window size between 5years and 10years
 smoothing_method = ['MA', 'MV', 'HE'] # Moving Average, Moving Variance and Hurst Exponent

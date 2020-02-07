@@ -1,0 +1,10 @@
+10,1.0,1.0,0.04,0.0769230769231,and(or($SnowAlb_BC_bin8 $Solar_bin9) $Land_Use_bin2 !$StratAer_bin5) 
+10,1.0,0.990384615385,0.04,0.0769230769231,and($Land_Use_bin2 $Solar_bin9) 
+10,1.0,1.0,0.04,0.0769230769231,and(or($SnowAlb_BC_bin8 $Solar_bin9) $Land_Use_bin2 !$SnowAlb_BC_bin5 !$StratAer_bin5) 
+10,1.0,0.990384615385,0.04,0.0769230769231,and(or($SnowAlb_BC_bin8 $Solar_bin9) $Land_Use_bin2) 
+10,1.0,0.990384615385,0.96,0.923076923077,or(and($Land_Use_bin2 $Solar_bin9) $SnowAlb_BC_bin8) 
+10,1.0,0.990384615385,0.96,0.923076923077,or(and(!$Land_Use_bin4 $Solar_bin9) $SnowAlb_BC_bin8) 
+10,0.0,0.980769230769,0.76,0.769230769231,$Land_Use_bin0 
+10,0.0,0.980769230769,0.2,0.192307692308,$Land_Use_bin1 
+10,0.0,0.980769230769,0.48,0.461538461538,$Orbital_bin8 
+10,0.0,0.980769230769,0.48,0.5,$Orbital_bin9 

@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.857142857143,0.939393939394,0.08,0.08,and(or(and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4) and($Solar_bin6 $StratAer_bin5) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin0 $Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin0 !$Solar_bin6 $WMGHG_bin4) and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin0 !$StratAer_bin1 $WMGHG_bin5) and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin1 $Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin1 !$StratAer_bin1 $WMGHG_bin5) and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin2 $Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and(!$Land_Use_bin2 !$Solar_bin6 $WMGHG_bin4) and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$StratAer_bin1 $WMGHG_bin5)) !$Solar_bin7) 
+8,0.821428571429,0.929292929293,0.0,0.0,and(or(and($Land_Use_bin2 !$StratAer_bin1 $WMGHG_bin5) and($Orbital_bin3 !$Solar_bin2 !$Solar_bin4 !$TropAerDir_bin5) and(!$Solar_bin6 $WMGHG_bin4)) !$Solar_bin7) 

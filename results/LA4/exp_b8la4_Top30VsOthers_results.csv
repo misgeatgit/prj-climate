@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.357142857143,0.912621359223,0.48,0.48,or(and($Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.285714285714,0.902912621359,0.32,0.32,$Land_Use_bin1 
+8,0.285714285714,0.902912621359,0.48,0.48,$TropAerDir_bin1 
+8,0.285714285714,0.902912621359,0.48,0.48,$TropAerInd_bin1 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and(!$Land_Use_bin0 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and(!$Land_Use_bin1 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and($Land_Use_bin2 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and(!$Land_Use_bin3 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and(!$Land_Use_bin4 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 
+8,0.357142857143,0.912621359223,0.48,0.48,or(and(!$Land_Use_bin5 $Ozone_bin5 $Solar_bin1) $TropAerDir_bin1) 

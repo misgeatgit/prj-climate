@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and($Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Land_Use_bin0 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Land_Use_bin1 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and($Land_Use_bin2 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Land_Use_bin3 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Land_Use_bin4 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Land_Use_bin5 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Orbital_bin0 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Orbital_bin2 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 
+8,0.692307692308,0.962264150943,0.346153846154,0.346153846154,or(and(!$Orbital_bin3 $Solar_bin4 $WMGHG_bin5) $TropAerDir_bin1) 

@@ -1,0 +1,10 @@
+10,0.5,0.93,0.2,0.2,$Land_Use_bin2 
+10,0.5,0.93,0.2,0.2,$Orbital_bin7 
+10,0.5,0.93,0.2,0.2,$Ozone_bin7 
+10,0.5,0.93,0.2,0.2,$SnowAlb_BC_bin7 
+10,0.5,0.93,0.2,0.2,$TropAerDir_bin2 
+10,0.5,0.93,0.2,0.2,$TropAerInd_bin2 
+10,0.5,0.93,0.2,0.2,$WMGHG_bin7 
+10,0.5,0.93,0.2,0.2,and(!$Land_Use_bin0 $Orbital_bin7) 
+10,0.5,0.93,0.2,0.2,and(!$Land_Use_bin0 $Ozone_bin7) 
+10,0.5,0.93,0.2,0.2,and(!$Land_Use_bin0 $SnowAlb_BC_bin7) 

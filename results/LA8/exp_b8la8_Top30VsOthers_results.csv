@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin0 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin1 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and($Land_Use_bin2 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin3 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin4 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin5 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin6 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Land_Use_bin7 !$StratAer_bin1 $WMGHG_bin5) 
+8,0.714285714286,0.939393939394,0.0,0.0,and(!$Orbital_bin0 !$StratAer_bin1 $WMGHG_bin5) 

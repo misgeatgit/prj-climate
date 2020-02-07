@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.285714285714,0.901960784314,0.52,0.52,or(and($Land_Use_bin2 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.214285714286,0.892156862745,0.36,0.36,$Land_Use_bin1 
+8,0.214285714286,0.892156862745,0.52,0.52,$TropAerDir_bin1 
+8,0.214285714286,0.892156862745,0.52,0.52,$TropAerInd_bin1 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and(!$Land_Use_bin0 $Land_Use_bin2 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and(!$Land_Use_bin1 $Land_Use_bin2 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and($Land_Use_bin2 !$Land_Use_bin3 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and($Land_Use_bin2 !$Land_Use_bin4 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and($Land_Use_bin2 !$Land_Use_bin5 $StratAer_bin4) $TropAerInd_bin1) 
+8,0.285714285714,0.901960784314,0.52,0.52,or(and($Land_Use_bin2 !$Land_Use_bin6 $StratAer_bin4) $TropAerInd_bin1) 
