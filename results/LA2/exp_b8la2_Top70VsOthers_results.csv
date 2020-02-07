@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1)) 
+8,0.859375,0.894230769231,1.0,1.0,or(and(or(!$Land_Use_bin5 !$StratAer_bin7) !$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) 
+8,0.859375,0.894230769231,1.0,1.0,and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Land_Use_bin0) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Land_Use_bin1) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Land_Use_bin2) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Land_Use_bin3) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Orbital_bin4) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Orbital_bin5) 
+8,0.875,0.903846153846,1.0,1.0,or(and(or(and(!$SnowAlb_BC_bin1 !$Solar_bin0 !$TropAerDir_bin7 !$TropAerInd_bin7) and(!$Solar_bin2 $StratAer_bin4)) or(!$Ozone_bin2 !$StratAer_bin7)) and(!$Land_Use_bin6 $Orbital_bin1) $Orbital_bin6) 

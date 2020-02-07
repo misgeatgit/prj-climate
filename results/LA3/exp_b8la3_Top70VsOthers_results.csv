@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7) and($StratAer_bin7 $TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,0.307692307692,0.307692307692,or(and(!$Land_Use_bin0 !$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7) and($StratAer_bin7 $TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin0 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin1 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin2 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin3 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin4 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin6 !$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7) and($StratAer_bin7 $TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin7 !$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7) and($StratAer_bin7 $TropAerDir_bin7)) 
+8,0.873015873016,0.893203883495,1.0,1.0,or(and(!$Land_Use_bin7 $StratAer_bin7 $TropAerDir_bin7) and(!$Orbital_bin1 !$SnowAlb_BC_bin0 !$TropAerDir_bin7)) 

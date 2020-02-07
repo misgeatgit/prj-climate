@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.5,0.990291262136,0.0,0.04,and($Ozone_bin5 !$TropAerInd_bin2) 
+8,0.5,0.990291262136,0.0,0.04,and($SnowAlb_BC_bin5 !$TropAerInd_bin2) 
+8,0.0,0.980582524272,0.708333333333,0.72,$Land_Use_bin0 
+8,0.0,0.980582524272,0.541666666667,0.56,$Orbital_bin7 
+8,0.0,0.980582524272,0.541666666667,0.56,$Ozone_bin7 
+8,0.0,0.980582524272,0.0,0.04,$SnowAlb_BC_bin7 
+8,0.0,0.980582524272,0.541666666667,0.56,$TropAerDir_bin0 
+8,0.0,0.980582524272,0.541666666667,0.56,$TropAerInd_bin0 
+8,0.0,0.980582524272,0.541666666667,0.56,$WMGHG_bin7 
+8,0.0,0.980582524272,0.708333333333,0.72,and($Land_Use_bin0 !$Land_Use_bin1) 

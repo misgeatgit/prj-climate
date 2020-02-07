@@ -7,24 +7,25 @@ import argparse
 
 EVAL_TABLE_PATH="/usr/local/bin/eval-table"
 OUT = 'Temperature'
-def parse_output(outputf,combof):
+def extract_programs(outputf):
 	"""Extract the combo programs from a given moses output file
 	params:
-	moses output file,combo file to be saved
+	moses output file
+        return list of string representation of the programs
 	"""	
-	f = open(outputf,'r')
-	combo_line = f.readline()
-	f.close()
-	combo = combo_line.split(' ',1)[1]
-	combo_file = open(combof,'w')
-	combo_file.write(combo)
-	combo_file.close()	
-		
+        programs = []
+        with open(outputf,'r') as f:
+	    combo_lines = f.readlines()
+            for combo_line in combo_lines:
+                 combo = combo_line.split(' ',1)[1]
+	         programs.append(combo)
+        return programs
+
 def eval_output(ifile,cfile,ofile):
 	"""evaluate the combo program
 	params:
 	actual file,combo file,output file"""
-        print('Evaluating {}'.format(ifile))
+        print('Evaluating {} on combo {}'.format(ifile, cfile))
 	global EVAL_TABLE_PATH
 	EVAL_TABLE_ARGS = " -i %s -C %s -o %s -u %s "%(ifile,cfile,ofile,OUT)
 	result=os.system(EVAL_TABLE_PATH + " " + EVAL_TABLE_ARGS) 
@@ -91,43 +92,46 @@ if __name__ == "__main__":
                 trtstdir = os.path.abspath(args.trtstdir[0]) # a dir to store eval-table output
 		moses_resf = os.path.abspath(args.combof[0]) #
 		combofp_dir = os.path.split(moses_resf)[0]
-		combof = os.path.join(combofp_dir,"%s.combo"%(mtrainfname))
-		parse_output(moses_resf,combof)
-		mtrain_evalf = os.path.join(trtstdir,mtrainfname+".eval")
-		mtest_evalf = os.path.join(trtstdir,mtestfname+".eval")
-		#start
-		eval_output(os.path.join(trtstdir,mtrainfname),combof,mtrain_evalf)
-		eval_output(os.path.join(trtstdir,mtestfname),combof,mtest_evalf)
+		programs = extract_programs(moses_resf)
+                i = 0
+                result = ''
+                suffix = ''
+                exp_result_dir = ''
+                for program in programs:
+		    combof = os.path.join(combofp_dir,"{}_{}.combo".format(mtrainfname, i))
+		    mtrain_evalf = os.path.join(trtstdir,'{}_{}.eval'.format(mtrainfname, i))
+		    mtest_evalf = os.path.join(trtstdir,'{}_{}.eval'.format(mtestfname, i))
+                    i += 1
+		    # Create a file containing the combo program
+                    with open(combof, 'w') as f:
+                        f.write(program)
+                    # Run eval-table
+		    eval_output(os.path.join(trtstdir,mtrainfname), combof, mtrain_evalf)
+		    eval_output(os.path.join(trtstdir,mtestfname), combof, mtest_evalf)
 
-                ptr = calc_performance(values_of_col(mtrain_evalf, OUT), values_of_col(os.path.join(trtstdir,mtrainfname), OUT))
-                ptst = calc_performance(values_of_col(mtest_evalf, OUT), values_of_col(os.path.join(trtstdir,mtestfname), OUT))
+                    ptr = calc_performance(values_of_col(mtrain_evalf, OUT), \
+                            values_of_col(os.path.join(trtstdir,mtrainfname), OUT))
+                    ptst = calc_performance(values_of_col(mtest_evalf, OUT), \
+                            values_of_col(os.path.join(trtstdir,mtestfname), OUT))
 
-                #result_file = os.path.join(os.path.split(trtstdir)[0],"results.csv")
-                result_file = trtstdir+"/results.csv"
-		save_result([ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
-                        ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy']],result_file)
-                # Append result of this experiment to results.csv
-                os.popen('rm resluts/*.csv -rf')
-                f = open(combof,'r')
-	        combo = f.readline()
-	        f.close()
-                exp = os.path.split(trtstdir)
-                #exp = exp[len(exp)-1]
-                #print("Experiment dir {}".format(exp))
-                #'exp_b*la*'
-                pdir = os.path.split(exp[0])[1]
-                bins_la = pdir.split('la')
-                la = int(bins_la[1])
-                bins = int(bins_la[0][5:])
-                suffix = pdir+'_'+exp[1]
-                exp_result_dir='results/LA{}'.format(la)
+                    # Append result of this experiment to results.csv
+                    exp = os.path.split(trtstdir)
+                    pdir = os.path.split(exp[0])[1]
+                    bins_la = pdir.split('la')
+                    la = int(bins_la[1])
+                    bins = int(bins_la[0][5:])
+	            combo = program
+                    line = '{},{},{},{},{},{}'.format(bins, ptr['recall'],\
+                            ptr['accuracy'],ptst['recall'],ptst['accuracy'],combo)
+                    # Append to result
+                    result += line
+                    suffix = pdir+'_'+exp[1]
+                    exp_result_dir='results/LA{}'.format(la)
                 if not os.path.isdir(exp_result_dir):
                     os.mkdir(exp_result_dir)
                 result_f = '{}/{}_results.csv'.format(exp_result_dir, suffix)
                 with open(result_f, 'a+') as f:
-                    line = '{},{},{},{},{},{},{},{},{},{}'.format(bins, ptr['precision'],ptr['recall'],ptr['accuracy'],ptr['balanced_accuracy'],\
-                            ptst['precision'],ptst['recall'],ptst['accuracy'],ptst['balanced_accuracy'],combo)
-                    f.write(line)
+                    f.write(result)
                 print('Result saved to {}'.format(result_f))
 	else:
-		parser.print_help()
+	    parser.print_help()

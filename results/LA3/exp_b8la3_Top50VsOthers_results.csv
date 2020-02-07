@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Orbital_bin6 $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) 
+8,0.93023255814,0.95145631068,0.5,0.5,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Land_Use_bin1 $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Orbital_bin6 $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Ozone_bin6 $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,1.0,1.0,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $SnowAlb_BC_bin6 $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Solar_bin7 $TropAerDir_bin1 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.576923076923,0.576923076923,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Solar_bin7 $TropAerInd_bin1 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5 $WMGHG_bin6) !$Orbital_bin2) 
+8,0.93023255814,0.95145631068,0.5,0.5,or(and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) $Land_Use_bin1) 
+8,0.93023255814,0.95145631068,0.615384615385,0.615384615385,or(and(or(and($Land_Use_bin4 !$StratAer_bin3) and($Orbital_bin4 $StratAer_bin5) $Solar_bin7 $TropAerInd_bin2 $WMGHG_bin5) !$Orbital_bin2) $Orbital_bin6) 

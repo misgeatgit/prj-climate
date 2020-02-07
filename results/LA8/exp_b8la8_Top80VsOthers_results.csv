@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or(!$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.888888888889,1.0,1.0,or(and($Solar_bin0 $StratAer_bin2) $StratAer_bin3 !$TropAerInd_bin6) 
+8,0.974683544304,0.888888888889,1.0,1.0,or(and(or(!$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or($Land_Use_bin2 !$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or($Land_Use_bin3 !$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or(!$Land_Use_bin6 !$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or($Land_Use_bin7 !$Orbital_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or(!$Orbital_bin1 $Orbital_bin5 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or(!$Orbital_bin1 !$Ozone_bin1 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 
+8,0.987341772152,0.89898989899,1.0,1.0,or(and(or(!$Orbital_bin1 $Ozone_bin2 $Solar_bin0) !$TropAerInd_bin6) and($Solar_bin0 $StratAer_bin2) $StratAer_bin3) 

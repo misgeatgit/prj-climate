@@ -1,0 +1,10 @@
+13,0.642857142857,0.95,0.04,0.04,or(and($StratAer_bin2 $TropAerInd_bin4) $Ozone_bin9) 
+13,0.571428571429,0.94,0.04,0.04,$Land_Use_bin3 
+13,0.571428571429,0.94,0.04,0.04,$Orbital_bin9 
+13,0.571428571429,0.94,0.04,0.04,$Ozone_bin9 
+13,0.571428571429,0.94,0.04,0.04,$SnowAlb_BC_bin9 
+13,0.571428571429,0.94,0.04,0.04,$TropAerDir_bin3 
+13,0.571428571429,0.94,0.04,0.04,$TropAerInd_bin3 
+13,0.571428571429,0.94,0.04,0.04,$WMGHG_bin9 
+13,0.642857142857,0.95,0.04,0.04,or(and(!$Land_Use_bin0 $StratAer_bin2 $TropAerInd_bin4) $Ozone_bin9) 
+13,0.642857142857,0.95,0.04,0.04,or(and(!$Land_Use_bin1 $StratAer_bin2 $TropAerInd_bin4) $Ozone_bin9) 

@@ -1,0 +1,11 @@
+bins,train_recall,train_accuracy,test_recall,test_accuracy,program
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2) !$Solar_bin0 !$WMGHG_bin1) $SnowAlb_BC_bin3 $Solar_bin2 $Solar_bin4) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Land_Use_bin4 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Orbital_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $SnowAlb_BC_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Land_Use_bin0 !$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Land_Use_bin2 !$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Land_Use_bin3 !$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and($Land_Use_bin5 !$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
+8,0.953125,0.93,1.0,1.0,or(and(or(and(!$Land_Use_bin6 !$Solar_bin5 !$StratAer_bin3 !$StratAer_bin5) !$TropAerDir_bin7) or(!$Land_Use_bin7 $StratAer_bin2 $StratAer_bin5) !$Solar_bin0 !$WMGHG_bin1) $Ozone_bin3 $Solar_bin2) 
