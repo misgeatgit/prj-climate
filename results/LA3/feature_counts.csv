@@ -1,10 +1,10 @@
 Features,Top10VsOthers,Top20VsOthers,Top30VsOthers,Top40VsOthers,Top50VsOthers,Top60VsOthers,Top70VsOthers,Top80VsOthers,Top90VsOthers,Total
-Orbital,2,2,0,12,22,10,10,9,3,70
 StratAer,0,10,0,32,20,22,10,19,0,113
-TropAerDir,1,0,2,12,1,10,20,20,10,76
-Ozone,1,0,0,10,1,10,0,1,0,23
 Solar,0,2,0,40,10,19,0,2,18,91
-SnowAlb_BC,2,0,0,2,1,10,10,10,2,37
 Land_Use,5,13,13,12,12,7,9,6,12,89
+TropAerDir,1,0,2,12,1,10,20,20,10,76
+Orbital,2,2,0,12,22,10,10,9,3,70
 WMGHG,1,0,0,12,11,1,0,0,18,43
+SnowAlb_BC,2,0,0,2,1,10,10,10,2,37
+Ozone,1,0,0,10,1,10,0,1,0,23
 TropAerInd,1,0,2,2,11,0,0,0,0,16

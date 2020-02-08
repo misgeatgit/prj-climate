@@ -71,8 +71,9 @@ for model_name in count_table:
 df = pds.DataFrame(count_table_df)
 # Total counts
 df['Total']=df.sum(axis=1)
+df = df.sort_values(by='Total', ascending=False)
 # Save 
 df.to_csv(join(exp_dir, 'feature_counts.csv'), sep=',', index=False)
-#print(df)
+print(df)
 
 
