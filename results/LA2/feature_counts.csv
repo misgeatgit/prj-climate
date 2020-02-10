@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Features,Top10VsOthers,Top20VsOthers,Top30VsOthers,Top40VsOthers,Top50VsOthers,Top60VsOthers,Top70VsOthers,Top80VsOthers,Top90VsOthers
 Orbital,2,2,2,2,2,2,2,2,2
 TropAerDir,1,1,1,1,1,1,1,1,1
@@ -6,3 +7,15 @@ SnowAlb_BC,2,2,2,2,2,2,2,2,2
 Land_Use,5,5,5,5,5,5,5,5,5
 WMGHG,1,1,1,1,1,1,1,1,1
 TropAerInd,1,1,1,1,1,1,1,1,1
+=======
+Features,Top10VsOthers,Top20VsOthers,Top30VsOthers,Top40VsOthers,Top50VsOthers,Top60VsOthers,Top70VsOthers,Top80VsOthers,Top90VsOthers,Total
+Solar,0,0,10,31,30,23,20,10,0,124
+StratAer,0,1,4,21,10,8,20,20,30,114
+TropAerDir,1,0,19,11,10,20,10,0,10,81
+Land_Use,5,8,0,11,8,9,13,15,8,77
+SnowAlb_BC,2,9,2,10,10,17,10,0,0,60
+WMGHG,1,0,0,21,20,0,0,0,10,52
+Ozone,1,1,12,0,0,11,9,1,0,35
+Orbital,2,0,0,0,1,13,11,3,1,31
+TropAerInd,1,10,9,0,0,0,10,0,0,30
+>>>>>>> a20ff131f0b97aa4825cd57b82bd595be77e38bd
