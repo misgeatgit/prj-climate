@@ -39,7 +39,7 @@ exp_dir = sys.argv[1] #director where CSV file is located.
 csv_files = [f for f in listdir(exp_dir) if isfile(join(exp_dir, f))]
 count_table = {}
 for csv_file in csv_files:
-    #print(csv_file)
+    print(csv_file)
     df = pds.read_csv(join(exp_dir, csv_file))
     programs = []
     for program in df['program']:

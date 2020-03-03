@@ -18,10 +18,10 @@ def plot_prediction_vs_actual(yhat, y, file_name, title=''):
         plt.close()
 
 ffx_dir = 'data/ffx'
-test_X = pds.read_csv('{}/natural_data_ffx_test_X.csv'.format(ffx_dir)).values
-test_Y = pds.read_csv('{}/natural_data_ffx_test_Y.csv'.format(ffx_dir)).values
-train_X = pds.read_csv('{}/natural_data_ffx_train_X.csv'.format(ffx_dir)).values
-train_Y = pds.read_csv('{}/natural_data_ffx_train_Y.csv'.format(ffx_dir)).values
+test_X = pds.read_csv('{}/natural_data_ffx_test_X.csv'.format(ffx_dir)).to_numpy()
+test_Y = pds.read_csv('{}/natural_data_ffx_test_Y.csv'.format(ffx_dir)).to_numpy()
+train_X = pds.read_csv('{}/natural_data_ffx_train_X.csv'.format(ffx_dir)).to_numpy()
+train_Y = pds.read_csv('{}/natural_data_ffx_train_Y.csv'.format(ffx_dir)).to_numpy()
 
 predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
               'TropAerDir','TropAerInd','StratAer']
@@ -31,17 +31,20 @@ predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
 Ks = [15,16,17,18,19,20]
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
-    test_X = test_X[:len(test_X) - K]
-    test_Y = np.roll(test_Y, -K, axis=0)[:len(test_Y) - K]
-    train_X = train_X[:len(train_X) - K]
-    train_Y = np.roll(train_Y, -K, axis=0)[:len(train_Y) - K]
+    cur_test_X = test_X[:len(test_X) - K]
+    cur_test_Y = np.roll(test_Y, -K, axis=0)[:len(test_Y) - K]
+    cur_train_X = train_X[:len(train_X) - K]
+    cur_train_Y = np.roll(train_Y, -K, axis=0)[:len(train_Y) - K]
     #'''
-    models = ffx.run(train_X, train_Y, test_X, \
-                 test_Y, predictors)
+    assert(cur_test_X.shape[0] == cur_test_Y.shape[0])
+    assert(cur_train_X.shape[0] == cur_train_Y.shape[0])
+    print('cur_test_X dim: {}'.format(cur_test_X.shape))
+    models = ffx.run(cur_train_X, cur_train_Y, cur_test_X, \
+                 cur_test_Y, predictors)
     best_performing_model={'sq_err':float('inf'), 'model':None}
     for model in models:
-        yhat = model.simulate(test_X)
-        y = test_Y
+        yhat = model.simulate(cur_test_X)
+        y = cur_test_Y
         print(' * {}'.format(model))
         sq_err = np.sum(np.square(y - yhat))
         print('   squared error= {}'.format(sq_err))
@@ -50,15 +53,15 @@ for K in Ks:
             best_performing_model['model'] = model
 
     model = best_performing_model['model']
-    yhat = model.simulate(test_X)
-    y = test_Y
+    yhat = model.simulate(cur_test_X)
+    y = cur_test_Y
     plot_prediction_vs_actual(yhat, y,'predict_{}_years.png'.format(K),\
             '[Model: {}] [Squared Err={}]'.format(model, best_performing_model['sq_err']))
     '''
     FFX = ffx.FFXRegressor()
-    FFX.fit(train_X, train_Y)
-    #print("Prediction:", FFX.predict(test_X))
-    print(" Score(of best performing model):", FFX.score(test_X, test_Y))
+    FFX.fit(cur_train_X, cur_train_Y)
+    #print("Prediction:", FFX.predict(cur_test_X))
+    print(" Score(of best performing model):", FFX.score(cur_test_X, cur_test_Y))
     '''
 
 
