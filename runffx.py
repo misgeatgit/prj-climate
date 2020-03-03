@@ -28,7 +28,8 @@ predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
 
 # Predict K years ahead
 #Ks = [0,1,2,3,4,5,6,7,8,10,9]
-Ks = [15,16,17,18,19,20]
+Ks = range(1,21)#[15,16,17,18,19,20]
+results = {'years_predicted': [], 'SquaredSumError': [], 'Model': []}
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
     cur_test_X = test_X[:len(test_X) - K]
@@ -53,6 +54,10 @@ for K in Ks:
             best_performing_model['model'] = model
 
     model = best_performing_model['model']
+    results['years_predicted'].append(K)
+    results['SquaredSumError'].append(best_performing_model['sq_err'])
+    results['Model'].append('{}'.format(model))
+    
     yhat = model.simulate(cur_test_X)
     y = cur_test_Y
     plot_prediction_vs_actual(yhat, y,'predict_{}_years.png'.format(K),\
@@ -63,5 +68,7 @@ for K in Ks:
     #print("Prediction:", FFX.predict(cur_test_X))
     print(" Score(of best performing model):", FFX.score(cur_test_X, cur_test_Y))
     '''
+pds.DataFrame(results).to_csv('ffx_results.csv',sep=',', index=False)
+print('Done FFX experiment. Check ffx_results.csv for summary and the plots.')
 
 
