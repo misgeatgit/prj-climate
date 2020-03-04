@@ -37,6 +37,7 @@ predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
 # Predict K years ahead
 #Ks = [0,1,2,3,4,5,6,7,8,10,9]
 Ks = range(1,31)#[15,16,17,18,19,20]
+Ks = [1]
 results = {'years_predicted': [], 'test_data_size': [], 'SquaredSumError': [],\
         'MeanAbsError':[], 'RMSError':[], 'Model': []}
 for K in Ks:
@@ -64,16 +65,20 @@ for K in Ks:
     best_performing_model={'sq_err':float('inf'), 'model':None}
     for model in models:
         yhat = model.simulate(cur_test_X)
-        y = cur_test_Y
+        y = np.reshape(cur_test_Y, cur_test_Y.shape[0])
         print(' * {}'.format(model))
         sq_err = np.sum(np.square(y - yhat))
         print('   squared error= {}'.format(sq_err))
         if sq_err < best_performing_model['sq_err']:
             best_performing_model['model'] = model
             best_performing_model['sq_err'] = sq_err
+            best_performing_model['y'] = y
+            best_performing_model['yhat'] = yhat
             best_performing_model['rms_err'] = np.sqrt(sq_err/len(yhat))
-            best_performing_model['mabs_err'] = np.sum((np.absolute(y - yhat)))/len(yhat)
+            best_performing_model['mabs_err'] = np.sum(np.absolute(y - yhat))/len(yhat)
 
+    print('y= {}'.format(best_performing_model['y']))
+    print('yhat= {}'.format(best_performing_model['yhat']))
     model = best_performing_model['model']
     results['SquaredSumError'].append(best_performing_model['sq_err'])
     results['RMSError'].append(best_performing_model['rms_err'])
@@ -83,7 +88,8 @@ for K in Ks:
     results['Model'].append('{}'.format(model))
 
     yhat = model.simulate(cur_test_X)
-    y = cur_test_Y
+    y = np.reshape(cur_test_Y, cur_test_Y.shape[0])
+    #y = cur_test_Y
     plot_prediction_vs_actual(yhat, y,'predict_{}_years.png'.format(K),\
             '[Model: {}] [Squared Err={}]'.format(model, best_performing_model['sq_err']))
     '''
