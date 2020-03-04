@@ -17,6 +17,12 @@ def plot_prediction_vs_actual(yhat, y, file_name, title=''):
         fig.savefig(file_name, dpi=fig.dpi)
         plt.close()
 
+# Silence SKlearn warning on python3
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 ffx_dir = 'data/ffx'
 test_X = pds.read_csv('{}/natural_data_ffx_test_X.csv'.format(ffx_dir)).to_numpy()
 test_Y = pds.read_csv('{}/natural_data_ffx_test_Y.csv'.format(ffx_dir)).to_numpy()
