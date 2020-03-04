@@ -40,15 +40,13 @@ Ks = range(1,21)#[15,16,17,18,19,20]
 results = {'years_predicted': [], 'SquaredSumError': [], 'Model': []}
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
-    '''
-    cur_test_X = test_X[:len(test_X) - K]
-    cur_test_Y = np.roll(test_Y, -K, axis=0)[:len(test_Y) - K]
-    cur_train_X = train_X[:len(train_X) - K]
-    cur_train_Y = np.roll(train_Y, -K, axis=0)[:len(train_Y) - K]
-    '''
+    # Remove the last K year data from as the Y value is unknown
     cur_data_X = data_X[:len(data_X) - K]
+    # Shift Y values K steps up and remove the last K points.
     cur_data_Y = np.roll(data_Y, -K, axis=0)[:len(data_Y) - K]
     train_size = int(cur_data_X.shape[0]*0.8) #80%
+
+    # Prepare FFX inputs
     cur_train_X = cur_data_X[:train_size]
     cur_train_Y = cur_data_Y[:train_size]
     cur_test_X = cur_data_X[train_size: ]
@@ -57,7 +55,9 @@ for K in Ks:
     assert(cur_test_X.shape[0] == cur_test_Y.shape[0])
     assert(cur_train_X.shape[0] == cur_train_Y.shape[0])
 
+    print('cur_train_X dim: {}'.format(cur_train_X.shape))
     print('cur_test_X dim: {}'.format(cur_test_X.shape))
+
     models = ffx.run(cur_train_X, cur_train_Y, cur_test_X, \
                  cur_test_Y, predictors)
     best_performing_model={'sq_err':float('inf'), 'model':None}
