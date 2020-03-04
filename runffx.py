@@ -37,7 +37,7 @@ predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
 # Predict K years ahead
 #Ks = [0,1,2,3,4,5,6,7,8,10,9]
 Ks = range(1,21)#[15,16,17,18,19,20]
-results = {'years_predicted': [], 'SquaredSumError': [], 'Model': []}
+results = {'years_predicted': [], 'SquaredSumError': [],'RMSError':[], 'Model': []}
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
     # Remove the last K year data from as the Y value is unknown
@@ -69,13 +69,15 @@ for K in Ks:
         print('   squared error= {}'.format(sq_err))
         if sq_err < best_performing_model['sq_err']:
             best_performing_model['sq_err'] = sq_err
+            best_performing_model['rms_err'] = np.sqrt(sq_err/len(yhat))
             best_performing_model['model'] = model
 
     model = best_performing_model['model']
     results['years_predicted'].append(K)
     results['SquaredSumError'].append(best_performing_model['sq_err'])
+    results['RMSError'].append(best_performing_model['rms_err'])
     results['Model'].append('{}'.format(model))
-    
+
     yhat = model.simulate(cur_test_X)
     y = cur_test_Y
     plot_prediction_vs_actual(yhat, y,'predict_{}_years.png'.format(K),\
