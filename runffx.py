@@ -36,8 +36,9 @@ predictors = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', 'Orbital',\
 
 # Predict K years ahead
 #Ks = [0,1,2,3,4,5,6,7,8,10,9]
-Ks = range(1,21)#[15,16,17,18,19,20]
-results = {'years_predicted': [], 'SquaredSumError': [],'RMSError':[], 'Model': []}
+Ks = range(1,31)#[15,16,17,18,19,20]
+results = {'years_predicted': [], 'test_data_size': [], 'SquaredSumError': [],\
+        'MeanAbsError':[], 'RMSError':[], 'Model': []}
 for K in Ks:
     print('\nModels Predicting {} years ahead:'.format(K))
     # Remove the last K year data from as the Y value is unknown
@@ -68,14 +69,17 @@ for K in Ks:
         sq_err = np.sum(np.square(y - yhat))
         print('   squared error= {}'.format(sq_err))
         if sq_err < best_performing_model['sq_err']:
+            best_performing_model['model'] = model
             best_performing_model['sq_err'] = sq_err
             best_performing_model['rms_err'] = np.sqrt(sq_err/len(yhat))
-            best_performing_model['model'] = model
+            best_performing_model['mabs_err'] = np.sum((np.absolute(y - yhat)))/len(yhat)
 
     model = best_performing_model['model']
-    results['years_predicted'].append(K)
     results['SquaredSumError'].append(best_performing_model['sq_err'])
     results['RMSError'].append(best_performing_model['rms_err'])
+    results['MeanAbsError'].append(best_performing_model['mabs_err'])
+    results['test_data_size'].append(len(cur_test_Y))
+    results['years_predicted'].append(K)
     results['Model'].append('{}'.format(model))
 
     yhat = model.simulate(cur_test_X)
