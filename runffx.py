@@ -42,13 +42,15 @@ train_Y = pds.read_csv('{}/natural_data_ffx_train_Y.csv'.format(ffx_dir))
 
 
 
+train_X['Year'] = [i for i in range(train_X.shape[0])]
+test_X['Year'] = [i for i in range(train_X.shape[0], train_X.shape[0]+test_X.shape[0])]
 # Train over variables found to be correlated with the Granger analysis
 group_0 = ['WMGHG', 'Ozone', 'TropAerInd']
 group_1 = ['WMGHG', 'Land_Use', 'Ozone', 'TropAerInd']
 group_2 = ['WMGHG', 'TropAerDir', 'Ozone', 'TropAerInd']
 all_vars = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', \
             'Orbital','TropAerDir','TropAerInd','StratAer']
-predictors = group_0
+predictors = all_vars + ['Year']
 train_X = train_X[predictors]
 test_X = test_X[predictors]
 # make sure predictors name are for each column are indentical
@@ -61,7 +63,7 @@ data_Y = np.append(train_Y.to_numpy(), test_Y.to_numpy(), axis=0)
 # Predict K years ahead
 #Ks = [0,1,2,3,4,5,6,7,8,10,9]
 Ks = range(1,31)#[15,16,17,18,19,20]
-#Ks = [1]
+Ks = [0]
 results = {'years_predicted': [], 'test_data_size': [], 'SquaredSumError': [],\
         'MeanAbsError':[], 'RMSError':[], 'Model': []}
 data_starting_year = 1880
