@@ -51,7 +51,7 @@ all_vars = ['WMGHG', 'Ozone', 'Solar', 'Land_Use', 'SnowAlb_BC', \
 predictors = group_0
 train_X = train_X[predictors]
 test_X = test_X[predictors]
-# make sure predictors name are for each column are indentical
+# make sure predictor names refer to the correct training column.
 for i in range(len(predictors)):
     assert(train_X.columns[i] == predictors[i])
     assert(test_X.columns[i] == predictors[i])
