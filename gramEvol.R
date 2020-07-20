@@ -20,7 +20,6 @@ for( LA in LookAhead) {
     TestLen <- nrow(X) - TrainLen
     XTrain <- head(X, TrainLen)
     XTest  <- tail(X, TestLen)
-    print(sprintf("NumOfRows(X): %d",nrow(X)))
     WMGHG <- XTrain[, "WMGHG"]
     Ozone <- XTrain[,"Ozone"]
     Solar <- XTrain[,"Solar"]
@@ -34,9 +33,8 @@ for( LA in LookAhead) {
 
     Y <- tail(Output, -LA) 
     YTrain <- head(Y, TrainLen)
-    YTest <- head(Y, TestLen)
+    YTest <- tail(Y, TestLen)
     Temperature <- YTrain[, "Temperature"]
-    print(sprintf("LengthOf(Temperature): %d",length(Temperature)))
     SymRegFitFunc <- function(expr) {
         result <- eval(expr)
         if (any(is.nan(result)))
@@ -81,17 +79,20 @@ for( LA in LookAhead) {
     #ruleDefs <- list(pair(ruleDef=group0_ruleDef,name="all_var"))
 
     for(P in ruleDefs) {   
+        print(sprintf("%s predict %s years experiment",P$name, LA))
         grammarDef <- CreateGrammar(P$ruleDef)
         set.seed(2)
-        suppressWarnings(ge <- GrammaticalEvolution(grammarDef, SymRegFitFunc, iterations=MAX_ITER, terminationCost = 0.005, monitorFunc=print))
+        #suppressWarnings(ge <- GrammaticalEvolution(grammarDef, SymRegFitFunc, iterations=MAX_ITER, terminationCost = 0.005, monitorFunc=print))
+        suppressWarnings(ge <- GrammaticalEvolution(grammarDef, SymRegFitFunc, iterations=MAX_ITER, terminationCost = 0.005))
+        actual <- YTest[, "Temperature"]
+        predicted <- eval(ge$best$expressions, XTest)
+        metrics <- c(sprintf("%s", ge$best$expressions), round(mae(actual,predicted), 2), 
+                      round(mae(YTest[, "Temperature"], eval(ge$best$expressions, XTest)), 2))
         png(file=sprintf("%s_LA_%s.png",P$name, LA))
-        plot(Temperature, col= "green", type="p", xlab="day", ylab="Temperature")
-        predicted <- eval(ge$best$expressions)
-        points(predicted, col = "blue", type = "l")
-        legend(x="topleft",y=2, legend=c("Actual", sprintf("%s",ge$best$expressions)),col=c("green", "blue"), pch=c(".","-"))
+        plot(actual, col= "red", type="p", pch=19, xlab="Month", ylab="Temperature", main=sprintf("Predict: %s year\nModel: %s\nMAE= %s",LA, metrics[1],metrics[3]))
+        points(predicted, col = "blue", type = "p")
+        #legend(x="bottomright",y=2, legend=c("Actual", "Predicted"),col=c("green", "blue"))
         dev.off()
-        metrics <- c(sprintf("%s", ge$best$expressions), mae(YTrain[, "Temperature"], predicted), 
-                      mae(YTest[, "Temperature"], eval(ge$best$expressions, XTest)))
         if(P$name == "group_0") {
            metrics0$model[LA] = metrics[1]
            metrics0$MAE_on_train[LA] = metrics[2]
